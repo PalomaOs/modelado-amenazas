@@ -479,56 +479,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Queries",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "b3ab2855-5989-4b9b-9974-4a7a466aed01",
-            "source": {
-              "cell": "b40f6ef8-e1d8-4714-aa98-a0c87e70ba6b"
-            },
-            "target": {
-              "cell": "5ecc6c28-60bd-428d-8cfb-4287a6dd1e5c"
-            },
-            "vertices": [
-              {
-                "x": 760,
-                "y": 510
-              }
-            ],
-            "labels": [
-              "Queries"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Resultados\nWeb App Query",
-              "description": "",
+              "description": "Datos recuperados desde la base de\ndatos.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -541,9 +493,9 @@
                   "id": "6cac416e-d28c-4f2c-8415-9631d3536cb7",
                   "title": "Ataque Man in the middle",
                   "status": "Mitigated",
-                  "severity": "High",
+                  "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "Un atacante podría\ninterceptar las\nconsultas de la base\nde datos en tránsito\ny obtener\ninformación\nconfidencial, como\ncredenciales de la\nbase de datos,\nparámetros de\nconsulta o resultados\nde la consulta (es\npoco probable ya\nque el flujo de datos\nse realiza a través de\nuna red privada).",
+                  "description": "Un atacante podría interceptar\nlas consultas de la base de\ndatos en tránsito y obtener\ninformación confidencial,\ncomo credenciales de la base\nde datos, parámetros de\nconsulta o resultados de la\nconsulta (es poco probable ya\nque el flujo de datos se\nrealiza a través de una red\nprivada).",
                   "mitigation": "Aplicar una conexión cifrada\nen el servidor de base de datos.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -673,6 +625,76 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Queries",
+              "description": "Instrucciones de SQL enviadas\nhacia la base de datos.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "578ba0b7-e6d3-4f7d-a01b-9055263c1b01",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría interceptar\nlas consultas de la base de\ndatos en tránsito y obtener\ninformación confidencial,\ncomo credenciales de la base\nde datos, parámetros de consulta o resultados de la\nconsulta (es poco probable ya\nque el flujo de datos se\nrealiza a través de una red\nprivada).",
+                  "mitigation": "Aplicar una conexión\ncifrada en el servidor de\nbase de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "b3ab2855-5989-4b9b-9974-4a7a466aed01",
+            "source": {
+              "cell": "b40f6ef8-e1d8-4714-aa98-a0c87e70ba6b"
+            },
+            "target": {
+              "cell": "5ecc6c28-60bd-428d-8cfb-4287a6dd1e5c"
+            },
+            "vertices": [
+              {
+                "x": 650,
+                "y": 430
+              },
+              {
+                "x": 700,
+                "y": 470
+              },
+              {
+                "x": 740,
+                "y": 510
+              }
+            ],
+            "labels": [
+              "Queries"
+            ]
+          },
+          {
             "position": {
               "x": 660,
               "y": 110
@@ -749,7 +771,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Páginas web \nen disco",
-              "description": "",
+              "description": "Páginas físicas almacenadas en el\ndisco.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -758,7 +780,21 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "66bc4011-5117-415a-8177-b5b3f12b9cdc",
+                  "title": "Modificación sin autorización",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un atacante podría modificar\nlas páginas web sin\nautorización.",
+                  "mitigation": "Las páginas solo tienen\nacceso de lectura.\nÚnicamente el usuario\nadministrador puede tener\nacceso de escritura.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -775,11 +811,13 @@
                 "text": "Web Application Config"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -790,16 +828,30 @@
             "data": {
               "type": "tm.Store",
               "name": "Web Application Config",
-              "description": "",
+              "description": "Archivo de configuración de la\naplicación.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "644901a7-912f-4c1c-a161-41061335c783",
+                  "title": "Las credenciales deben estar cifradas.",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "La configuración de la\naplicación web almacena las\ncredenciales utilizadas por la\naplicación web para acceder a\nla cola de mensajes. Un\natacante podría robarlos y\nutilizarlos para leer datos\nconfidenciales o colocar\nmensajes dudosos en la cola.",
+                  "mitigation": "Las credenciales de\nalmacenadas deben estar\ncifradas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -816,11 +868,13 @@
                 "text": "Base de datos"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -831,16 +885,43 @@
             "data": {
               "type": "tm.Store",
               "name": "Base de datos",
-              "description": "",
+              "description": "El servidor de la base de datos será\nMySQL y se ejecutará en un\nservidor Linux. Este servidor será\nreforzado según el estándar de\nprotección de servidores de la\nuniversidad. Esto incluirá la\ninstalación de los últimos parches de\nseguridad del sistema operativo y de\nlas aplicaciones.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "a5089b35-4164-413d-a3a8-0d8b9a602a99",
+                  "title": "Acceso no autorizado",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría enviar una\nconsulta a la BD.",
+                  "mitigation": "Requerir que todas las\nconsultas sean\nautenticadas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "dc8fd6c9-af5d-45ad-8796-802165b51ccd",
+                  "title": "Robo de credenciales",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría obtener\nlas credenciales de la base de\ndatos y utilizarlas para\nrealizar consultas no\nautorizadas.",
+                  "mitigation": "Utilice un firewall para\nrestringir el acceso a la\nbase de datos únicamente\na la dirección IP del\ntrabajador en segundo\nplano.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ]
             }
           }
         ]
@@ -848,6 +929,6 @@
     ],
     "diagramTop": 4,
     "reviewer": "Guillermo Vera",
-    "threatTop": 9
+    "threatTop": 14
   }
 }
