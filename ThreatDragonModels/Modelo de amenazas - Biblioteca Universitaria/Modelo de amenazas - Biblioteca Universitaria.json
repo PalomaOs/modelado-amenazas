@@ -12,18 +12,7 @@
         "name": "Miriam Ramírez"
       }
     ],
-    "diagrams": [
-      {
-        "id": 1,
-        "title": "ghfhf",
-        "diagramType": "STRIDE",
-        "placeholder": "New STRIDE diagram description",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.2.0",
-        "cells": [],
-        "description": "gcbcb"
-      }
-    ],
+    "diagrams": [],
     "diagramTop": 3,
     "reviewer": "Guillermo Vera",
     "threatTop": 0
